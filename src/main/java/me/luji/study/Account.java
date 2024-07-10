@@ -1,8 +1,8 @@
 package me.luji.study;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 public class Account {
@@ -10,9 +10,23 @@ public class Account {
     @GeneratedValue
     private long id;
 
+    @Column(nullable = false)
     private String username;
 
     private String password;
+
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date created;
+//
+//    @Transient
+//    private String no;
+//
+//    @Embedded
+//    @AttributeOverrides({
+//            @AttributeOverride(name="street", column = @Column(name = "home_street") )
+//    })
+//    private Address address;
+
 
     public long getId() {
         return id;
@@ -36,5 +50,21 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
     }
 }

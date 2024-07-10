@@ -18,10 +18,8 @@ public class JpaRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Account account = new Account();
-        account.setUsername("chlee");
+        account.setUsername("chlee2");
         account.setPassword("wnfjdwnfjd");
-
-        entityManager.persist(account);
 
         Session session = entityManager.unwrap(Session.class);
         session.save(account);

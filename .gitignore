@@ -4,6 +4,7 @@
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+build/
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -11,6 +12,8 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+
 
 # AWS User-specific
 .idea/**/aws.xml
@@ -156,6 +159,7 @@ thumb
 sketch
 
 .gradle
+.idea
 
 ### Vue ###
 # gitignore template for Vue.js projects
@@ -169,3 +173,4 @@ docs/_book
 test/
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java,react,vue
+build
