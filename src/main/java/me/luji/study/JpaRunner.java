@@ -29,7 +29,7 @@ public class JpaRunner implements ApplicationRunner {
 //        Session session = entityManager.unwrap(Session.class);
 //        session.save(account);
 //        session.save(study);
-//
+
 //        Account chlee = session.load(Account.class, account.getId());
 //        chlee.setUsername("chlchle");
 //        chlee.setUsername("chlchle2");
@@ -37,18 +37,30 @@ public class JpaRunner implements ApplicationRunner {
 //        System.out.println("==================");
 //        System.out.println(chlee.getUsername());
 
-        Post post = new Post();
-        post.setTitle("Spring Data Jpa 언제 해?");
-
-        Comment comment = new Comment();
-        comment.setComment("빨리 해보고 싶음");
-        post.addComment(comment);
-
-        Comment comment1 = new Comment();
-        comment1.setComment("빨리 해보고 싶음2");
-        post.addComment(comment1);
+//        Post post = new Post();
+//        post.setTitle("Spring Data Jpa 언제 해?");
+//
+//        Comment comment = new Comment();
+//        comment.setComment("빨리 해보고 싶음");
+//        post.addComment(comment);
+//
+//        Comment comment1 = new Comment();
+//        comment1.setComment("빨리 해보고 싶음2");
+//        post.addComment(comment1);
 
         Session session = entityManager.unwrap(Session.class);
-        session.save(post);
+//        session.save(post);
+        Post post = session.get(Post.class, 1);
+        System.out.println(post.getTitle());
+//        Comment comment = session.get(Comment.class, 1);
+//        System.out.println(comment.getComment());
+//        System.out.println(comment.getPost().getTitle());
+
+        post.getComments().forEach(c -> {
+            System.out.println("===><===");
+            System.out.println(c.getComment());
+        });
+
+
     }
 }
