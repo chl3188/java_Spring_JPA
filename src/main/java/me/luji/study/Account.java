@@ -3,6 +3,8 @@ package me.luji.study;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Account {
@@ -14,6 +16,9 @@ public class Account {
     private String username;
 
     private String password;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<Study> stuides = new HashSet<>();
 
 //    @Temporal(TemporalType.TIMESTAMP)
 //    private Date created;
@@ -52,19 +57,21 @@ public class Account {
         this.password = password;
     }
 
-    public Date getCreated() {
-        return created;
+    public Set<Study> getStuides() {
+        return stuides;
     }
 
-    public void setCreated(Date created) {
-        this.created = created;
+    public void setStuides(Set<Study> stuides) {
+        this.stuides = stuides;
     }
 
-    public String getNo() {
-        return no;
+    public void addStudy(Study study) {
+        this.getStuides().add(study);
+        study.setOwner(this);
     }
 
-    public void setNo(String no) {
-        this.no = no;
+    public void removeStudy(Study study) {
+        this.getStuides().remove(study);
+        study.setOwner(null);
     }
 }
