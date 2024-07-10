@@ -155,6 +155,8 @@ psd
 thumb
 sketch
 
+.gradle
+
 ### Vue ###
 # gitignore template for Vue.js projects
 #
