@@ -22,7 +22,7 @@ public class Comment {
         return likeCount;
     }
 
-    public void setLike(int like) {
+    public void setLikeCount(int like) {
         this.likeCount = like;
     }
 
